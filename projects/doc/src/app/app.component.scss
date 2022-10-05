@@ -1,0 +1,14 @@
+
+div {
+  display: inline-flex;
+  flex-direction: column;
+  color: whitesmoke;
+
+  & > div {
+    height: 46px;
+    width: 300px;
+    line-height: 46px;
+    padding-left: .5rem;
+  }
+
+}

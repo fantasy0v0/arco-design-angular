@@ -3,8 +3,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "arco-design-angular-lib": [
-        "dist/arco-design-angular-lib"
+      "arco-design-angular/*": [
+        "dist/arco-design-angular/*"
       ]
     },
     "baseUrl": "./",
