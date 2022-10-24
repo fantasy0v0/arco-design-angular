@@ -5,6 +5,9 @@
     "paths": {
       "arco-design-angular/*": [
         "dist/arco-design-angular/*"
+      ],
+      "test": [
+        "dist/test"
       ]
     },
     "baseUrl": "./",

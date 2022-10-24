@@ -12,7 +12,7 @@ specifiers:
   '@angular/platform-browser': ~14.2.0
   '@angular/platform-browser-dynamic': ~14.2.0
   '@angular/router': ~14.2.0
-  '@arco-design/color': ~0.4.0
+  '@arco-design/color': ^0.4.0
   '@types/jasmine': ~4.0.0
   jasmine-core: ~4.1.0
   karma: ~6.3.0

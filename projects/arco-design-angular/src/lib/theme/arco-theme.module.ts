@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { ArcoThemeService } from './service/public-api';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: []
+  imports: [],
+  providers: [ArcoThemeService]
 })
 export class ArcoThemeModule { }

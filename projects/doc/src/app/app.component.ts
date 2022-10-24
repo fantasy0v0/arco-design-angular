@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Colors, generateColor } from 'arco-design-angular/theme';
+import { Colors, generateColor } from 'arco-design-angular/lib/color/public-api';
 
 @Component({
   selector: 'app-root',
