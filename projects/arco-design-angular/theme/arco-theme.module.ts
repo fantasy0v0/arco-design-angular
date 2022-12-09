@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ArcoThemeService } from './service/public-api';
+import { ArcoThemeService } from './service/arco-theme.service';
 
 @NgModule({
   declarations: [],
