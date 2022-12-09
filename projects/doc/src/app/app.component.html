@@ -1,11 +1,17 @@
-<div class="light">
-  <ng-container *ngFor="let gradient of gradients">
-    <div [style]="{'background-color': gradient}">{{ gradient }}</div>
+<div class="colors">
+  <ng-container *ngFor="let item of colors">
+    <div [style]="{'background-color': item.color.primary()}" (click)="onClick(item.color)"></div>
   </ng-container>
 </div>
-
-<div class="dark" style="margin-left: 1rem;">
-  <ng-container *ngFor="let gradient of darkGradients">
-    <div [style]="{'background-color': gradient}">{{ gradient }}</div>
-  </ng-container>
+<div>
+  <div class="light">
+    <ng-container *ngFor="let gradient of gradients">
+      <div [style]="{'background-color': gradient}">{{ gradient }}</div>
+    </ng-container>
+  </div>
+  <div class="dark" style="margin-left: 1rem;">
+    <ng-container *ngFor="let gradient of darkGradients">
+      <div [style]="{'background-color': gradient}">{{ gradient }}</div>
+    </ng-container>
+  </div>
 </div>

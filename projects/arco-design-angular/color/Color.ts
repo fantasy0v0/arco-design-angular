@@ -100,7 +100,7 @@ class CustomColor implements Color {
  * @param value 颜色hex值
  * @returns 颜色对象
  */
-export function generateColor(value: string) {
+export function generateColor(value: string): Color {
   return new GeneratedColor(value);
 }
 
@@ -110,13 +110,13 @@ export function generateColor(value: string) {
  * @param darkGradients 暗色梯度, 格式: hex
  * @returns 颜色对象
  */
-export function customColor(gradients: string[], darkGradients: string[]) {
+export function customColor(gradients: string[], darkGradients: string[]): Color {
   return new CustomColor(gradients, darkGradients);
 }
 
 export const Colors = {
   Red: generateColor('#F53F3F'),
-  OrangeRed: generateColor('#F53F3F'),
+  OrangeRed: generateColor('#F77234'),
   Orange: generateColor('#FF7D00'),
   Gold: generateColor('#F7BA1E'),
   Yellow: generateColor('#FADC19'),

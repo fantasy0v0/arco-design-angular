@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { Colors, generateColor } from 'arco-design-angular/color';
+import { Color, Colors } from 'arco-design-angular/color';
+
+interface ColorItem {
+
+  name: string;
+
+  color: Color;
+}
 
 @Component({
   selector: 'app-root',
@@ -9,12 +16,23 @@ import { Colors, generateColor } from 'arco-design-angular/color';
 export class AppComponent {
   title = 'doc';
 
-  gradients: string[];
+  colors: ColorItem[] = [];
 
-  darkGradients: string[];
+  gradients: string[] = [];
+
+  darkGradients: string[] = [];
 
   constructor() {
-    const color = generateColor('#F53F3F');
+    const _Colors = Colors as { [key: string]: Color };
+    for (let name of Object.keys(Colors)) {
+      this.colors.push({
+        name, color: _Colors[name]
+      });
+    }
+    this.onClick(Colors.Red)
+  }
+
+  onClick(color: Color) {
     this.gradients = color.gradients();
     this.darkGradients = color.gradients(true);
   }
