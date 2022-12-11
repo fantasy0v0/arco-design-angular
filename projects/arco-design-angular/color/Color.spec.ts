@@ -1,4 +1,5 @@
-import { Colors } from "./Color";
+import { ObjectUnsubscribedError } from "rxjs";
+import { Color, Colors } from "./Color";
 import { ColorGradient } from "./ColorGradient";
 
 describe('Arco Color', () => {
@@ -13,5 +14,17 @@ describe('Arco Color', () => {
     expect(red.dark()).toEqual('#F76965');
     expect(red.dark(ColorGradient.G1)).toEqual('#4D000A');
     expect(red.dark(ColorGradient.G10)).toEqual('#FFF0EC');
+  });
+
+  it('print css var', () => {
+    const _Colors = Colors as { [key: string]: Color };
+    for (let key of Object.keys(_Colors)) {
+      const color = _Colors[key];
+      const gradients = color.gradients();
+      for (const index in gradients) {
+        const gradient = gradients[index];
+        console.log(`--${color.name()}-${+index + 1}: ${gradient}`);
+      }
+    }
   });
 });

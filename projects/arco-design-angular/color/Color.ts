@@ -6,6 +6,8 @@ export type ColorFormat = 'hex' | 'rgb' | 'hsl';
 
 export interface Color {
 
+  name(): string;
+
   primary(): string;
 
   light(gradient?: ColorGradient, format?: ColorFormat): string;
@@ -26,16 +28,20 @@ class GeneratedColor implements Color {
   private _darkGradients: string[];
 
   /**
-   *
-   * @param value 颜色 hex值
+   * @param _name 颜色的名称
+   * @param _value 颜色 hex值
    */
-  constructor(private value: string) {
-    this._gradients = generate(value, { dark: false, list: true }) as string[];
-    this._darkGradients = generate(value, { dark: true, list: true }) as string[];
+  constructor(private _name: string, private _value: string) {
+    this._gradients = generate(_value, { dark: false, list: true }) as string[];
+    this._darkGradients = generate(_value, { dark: true, list: true }) as string[];
+  }
+
+  name() {
+    return this._name
   }
 
   primary() {
-    return this.value;
+    return this._value;
   }
 
   light(gradient: ColorGradient = ColorGradient.G6, format: ColorFormat = 'hex') {
@@ -54,14 +60,14 @@ class GeneratedColor implements Color {
         return this._gradients[gradient];
       }
     }
-    return generate(this.value, { dark, format, list: false, index: gradient + 1 }) as string;
+    return generate(this._value, { dark, format, list: false, index: gradient + 1 }) as string;
   }
 
   gradients(dark: boolean = false, format: ColorFormat = 'hex') {
     if (format === 'hex') {
       return dark ? this._darkGradients : this._gradients;
     }
-    return generate(this.value, { dark, format, list: true }) as string[];
+    return generate(this._value, { dark, format, list: true }) as string[];
   }
 
 }
@@ -71,10 +77,14 @@ class GeneratedColor implements Color {
  */
 class CustomColor implements Color {
 
-  constructor(private _gradients: string[], private _darkGradients: string[]) {
+  constructor(private _name: string, private _gradients: string[], private _darkGradients: string[]) {
     if (_gradients.length != 10 || _darkGradients.length != 10) {
       throw new Error('CustomColor bad parameter');
     }
+  }
+
+  name() {
+    return this._name;
   }
 
   primary() {
@@ -97,38 +107,40 @@ class CustomColor implements Color {
 
 /**
  * 根据指定的颜色值生成颜色对象
+ * @param name 颜色的名称
  * @param value 颜色hex值
  * @returns 颜色对象
  */
-export function generateColor(value: string): Color {
-  return new GeneratedColor(value);
+export function generateColor(name: string, value: string): Color {
+  return new GeneratedColor(name, value);
 }
 
 /**
  * 自定义颜色对象, 以该方式生成的颜色对象只支持hex
+ * @param name 颜色的名称
  * @param gradients 亮色梯度, 格式: hex
  * @param darkGradients 暗色梯度, 格式: hex
  * @returns 颜色对象
  */
-export function customColor(gradients: string[], darkGradients: string[]): Color {
-  return new CustomColor(gradients, darkGradients);
+export function customColor(name: string, gradients: string[], darkGradients: string[]): Color {
+  return new CustomColor(name, gradients, darkGradients);
 }
 
 export const Colors = {
-  Red: generateColor('#F53F3F'),
-  OrangeRed: generateColor('#F77234'),
-  Orange: generateColor('#FF7D00'),
-  Gold: generateColor('#F7BA1E'),
-  Yellow: generateColor('#FADC19'),
-  Lime: generateColor('#9FDB1D'),
-  Green: generateColor('#00B42A'),
-  Cyan: generateColor('#14C9C9'),
-  Blue: generateColor('#3491FA'),
-  ArcoBlue: generateColor('#165DFF'),
-  Purple: generateColor('#722ED1'),
-  PinkPurple: generateColor('#D91AD9'),
-  Magenta: generateColor('#F5319D'),
-  Gray: customColor([
+  Red: generateColor('red', '#F53F3F'),
+  OrangeRed: generateColor('orangeRed', '#F77234'),
+  Orange: generateColor('orange', '#FF7D00'),
+  Gold: generateColor('gold', '#F7BA1E'),
+  Yellow: generateColor('yellow', '#FADC19'),
+  Lime: generateColor('lime', '#9FDB1D'),
+  Green: generateColor('green', '#00B42A'),
+  Cyan: generateColor('cyan', '#14C9C9'),
+  Blue: generateColor('blue', '#3491FA'),
+  ArcoBlue: generateColor('arcoBlue', '#165DFF'),
+  Purple: generateColor('purple', '#722ED1'),
+  PinkPurple: generateColor('pinkPurple', '#D91AD9'),
+  Magenta: generateColor('magenta', '#F5319D'),
+  Gray: customColor('gray', [
     '#f7f8fa',
     '#f2f3f5',
     '#e5e6eb',

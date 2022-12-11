@@ -29,11 +29,26 @@ export class AppComponent {
         name, color: _Colors[name]
       });
     }
-    this.onClick(Colors.Red)
+    this.onClick(Colors.Red);
+    this.printCssVar();
   }
 
   onClick(color: Color) {
     this.gradients = color.gradients();
     this.darkGradients = color.gradients(true);
+  }
+
+  printCssVar() {
+    const _Colors = Colors as { [key: string]: Color };
+    for (let key of Object.keys(_Colors)) {
+      const color = _Colors[key];
+      const gradients = color.gradients();
+      let buff = '';
+      for (const index in gradients) {
+        const gradient = gradients[index];
+        buff += `--${color.name()}-${+index + 1}: ${gradient}\n`;
+      }
+      console.log(buff);
+    }
   }
 }

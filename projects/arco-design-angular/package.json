@@ -1,6 +1,11 @@
 {
   "name": "arco-design-angular",
   "version": "0.0.1",
+  "scripts": {
+    "build": "pnpm ../../node_modules/typescript/bin/tsc -p tsconfig.schematics.json",
+    "postbuild": "pnpm ../../node_modules/copyfiles/copyfiles schematics/*/schema.json schematics/collection.json ../../dist/arco-design-angular/"
+  },
+  "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "~15.0.3",
     "@angular/core": "~15.0.3"
