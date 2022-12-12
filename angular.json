@@ -27,7 +27,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/arco-design-angular/src/test.ts",
+            "main": "projects/arco-design-angular/test.ts",
             "tsConfig": "projects/arco-design-angular/tsconfig.spec.json",
             "karmaConfig": "projects/arco-design-angular/karma.conf.js"
           }
