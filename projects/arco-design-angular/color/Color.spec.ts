@@ -21,10 +21,12 @@ describe('Arco Color', () => {
     for (let key of Object.keys(_Colors)) {
       const color = _Colors[key];
       const gradients = color.gradients();
+      let buff = '';
       for (const index in gradients) {
         const gradient = gradients[index];
-        console.log(`--${color.name()}-${+index + 1}: ${gradient}`);
+        buff += `--${color.name()}-${+index + 1}: ${gradient}\n`;
       }
+      console.log(buff);
     }
   });
 });
