@@ -23,6 +23,7 @@ div {
       width: 300px;
       line-height: 46px;
       padding-left: .5rem;
+      transition: background-color .6s cubic-bezier(0.25, 1, 0.5, 1);
     }
   }
 

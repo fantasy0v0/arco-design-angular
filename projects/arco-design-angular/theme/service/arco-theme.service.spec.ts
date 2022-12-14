@@ -8,7 +8,8 @@ describe('ArcoThemeService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ArcoThemeModule]
+      providers: [ArcoThemeService],
+      // imports: [ArcoThemeModule]
     });
     service = TestBed.inject(ArcoThemeService);
   });

@@ -5,12 +5,12 @@
 </div>
 <div>
   <div class="light">
-    <ng-container *ngFor="let gradient of gradients">
+    <ng-container *ngFor="let gradient of gradients; trackBy: trackByName">
       <div [style]="{'background-color': gradient}">{{ gradient }}</div>
     </ng-container>
   </div>
   <div class="dark" style="margin-left: 1rem;">
-    <ng-container *ngFor="let gradient of darkGradients">
+    <ng-container *ngFor="let gradient of darkGradients; trackBy: trackByName">
       <div [style]="{'background-color': gradient}">{{ gradient }}</div>
     </ng-container>
   </div>

@@ -36,4 +36,8 @@ export class AppComponent {
     this.gradients = color.gradients();
     this.darkGradients = color.gradients(true);
   }
+
+  trackByName(index: number, _: string) {
+    return index;
+  }
 }

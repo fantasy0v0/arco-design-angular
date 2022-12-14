@@ -18,15 +18,18 @@ describe('Arco Color', () => {
 
   it('print css var', () => {
     const _Colors = Colors as { [key: string]: Color };
+    let buff = '';
     for (let key of Object.keys(_Colors)) {
       const color = _Colors[key];
       const gradients = color.gradients();
-      let buff = '';
+      let _buff = '';
       for (const index in gradients) {
         const gradient = gradients[index];
-        buff += `--${color.name()}-${+index + 1}: ${gradient}\n`;
+        _buff += `--${color.name()}-${+index + 1}: ${gradient}\n`;
       }
-      console.log(buff);
+      buff += _buff + '\r\n';
     }
+    console.log(buff);
+    expect(true).toBe(true);
   });
 });
