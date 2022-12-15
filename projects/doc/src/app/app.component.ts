@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Color, Colors } from 'arco-design-angular/color';
+import { ArcoThemeService } from 'arco-design-angular/theme';
 
 interface ColorItem {
 
@@ -22,7 +23,7 @@ export class AppComponent {
 
   darkGradients: string[] = [];
 
-  constructor() {
+  constructor(private arcoThemeService: ArcoThemeService) {
     const _Colors = Colors as { [key: string]: Color };
     for (let name of Object.keys(Colors)) {
       this.colors.push({
@@ -30,6 +31,7 @@ export class AppComponent {
       });
     }
     this.onClick(Colors.Red);
+    console.log(this.arcoThemeService);
   }
 
   onClick(color: Color) {
