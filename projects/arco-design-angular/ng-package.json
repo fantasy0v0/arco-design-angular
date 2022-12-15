@@ -3,5 +3,11 @@
   "dest": "../../dist/arco-design-angular",
   "lib": {
     "entryFile": "public-api.ts"
-  }
+  },
+  "assets": [
+    "index.scss",
+    "styles/*",
+    "schematics/collection.json",
+    "schematics/*/schema.json"
+  ]
 }

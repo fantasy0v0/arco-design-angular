@@ -61,7 +61,8 @@
               "projects/doc/src/assets"
             ],
             "styles": [
-              "projects/doc/src/styles.scss"
+              "projects/doc/src/styles.scss",
+              "dist/arco-design-angular/index.scss"
             ],
             "scripts": []
           },
