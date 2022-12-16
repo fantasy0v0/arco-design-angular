@@ -6,9 +6,9 @@ export type ColorFormat = 'hex' | 'rgb' | 'hsl';
 
 export interface Color {
 
-  name(): string;
+  readonly name: string;
 
-  primary(): string;
+  readonly primary: string;
 
   light(gradient?: ColorGradient, format?: ColorFormat): string;
 
@@ -23,25 +23,23 @@ export interface Color {
  */
 class GeneratedColor implements Color {
 
+  name: string;
+
+  primary: string;
+
   private _gradients: string[];
 
   private _darkGradients: string[];
 
   /**
-   * @param _name 颜色的名称
-   * @param _value 颜色 hex值
+   * @param name 颜色的名称
+   * @param value 颜色 hex值
    */
-  constructor(private _name: string, private _value: string) {
-    this._gradients = generate(_value, { dark: false, list: true }) as string[];
-    this._darkGradients = generate(_value, { dark: true, list: true }) as string[];
-  }
-
-  name() {
-    return this._name
-  }
-
-  primary() {
-    return this._value;
+  constructor(name: string, value: string) {
+    this.name = name;
+    this.primary = value;
+    this._gradients = generate(value, { dark: false, list: true }) as string[];
+    this._darkGradients = generate(value, { dark: true, list: true }) as string[];
   }
 
   light(gradient: ColorGradient = ColorGradient.G6, format: ColorFormat = 'hex') {
@@ -60,14 +58,14 @@ class GeneratedColor implements Color {
         return this._gradients[gradient];
       }
     }
-    return generate(this._value, { dark, format, list: false, index: gradient + 1 }) as string;
+    return generate(this.primary, { dark, format, list: false, index: gradient + 1 }) as string;
   }
 
   gradients(dark: boolean = false, format: ColorFormat = 'hex') {
     if (format === 'hex') {
       return dark ? this._darkGradients : this._gradients;
     }
-    return generate(this._value, { dark, format, list: true }) as string[];
+    return generate(this.primary, { dark, format, list: true }) as string[];
   }
 
 }
@@ -77,18 +75,16 @@ class GeneratedColor implements Color {
  */
 class CustomColor implements Color {
 
-  constructor(private _name: string, private _gradients: string[], private _darkGradients: string[]) {
+  name: string;
+
+  primary: string;
+
+  constructor(name: string, private _gradients: string[], private _darkGradients: string[]) {
+    this.name = name;
+    this.primary = _gradients[ColorGradient.G6];
     if (_gradients.length != 10 || _darkGradients.length != 10) {
       throw new Error('CustomColor bad parameter');
     }
-  }
-
-  name() {
-    return this._name;
-  }
-
-  primary() {
-    return this._gradients[ColorGradient.G6];
   }
 
   light(gradient: ColorGradient = ColorGradient.G6, format?: ColorFormat) {
@@ -126,6 +122,9 @@ export function customColor(name: string, gradients: string[], darkGradients: st
   return new CustomColor(name, gradients, darkGradients);
 }
 
+/**
+ * TODO 需要修改成复用@arco-design/color中的数据, 而不是自己维护一套
+ */
 export const Colors = {
   Red: generateColor('red', '#F53F3F'),
   OrangeRed: generateColor('orangeRed', '#F77234'),

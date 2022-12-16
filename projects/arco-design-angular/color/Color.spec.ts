@@ -1,11 +1,13 @@
 import { ObjectUnsubscribedError } from "rxjs";
 import { Color, Colors } from "./Color";
 import { ColorGradient } from "./ColorGradient";
+// @ts-ignore
+import { generate } from "@arco-design/color";
 
 describe('Arco Color', () => {
   it('test', () => {
     const red = Colors.Red;
-    expect(red.primary()).toEqual('#F53F3F');
+    expect(red.primary).toEqual('#F53F3F');
 
     expect(red.light()).toEqual('#F53F3F');
     expect(red.light(ColorGradient.G1)).toEqual('#FFECE8');
@@ -37,7 +39,7 @@ describe('Arco Color', () => {
         } else {
           _buff += ', ';
         }
-        _buff += `"${color.name()}":(`;
+        _buff += `"${color.name}":(`;
         let _first = true;
         for (const index in gradients) {
           if (_first) {
@@ -60,5 +62,12 @@ describe('Arco Color', () => {
     colors = genColor(true);
     console.log(colors);
     expect(true).toBe(true);
+  });
+
+  it('123', () => {
+    console.log(generate('#123456', {
+      format: 'rgb',
+      list: true
+    }));
   });
 });
