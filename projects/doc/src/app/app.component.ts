@@ -19,24 +19,23 @@ export class AppComponent {
 
   colors: ColorItem[] = [];
 
-  gradients: string[] = [];
+  light: string[] = [];
 
-  darkGradients: string[] = [];
+  dark: string[] = [];
 
   constructor(private arcoThemeService: ArcoThemeService) {
-    const _Colors = Colors as { [key: string]: Color };
     for (let name of Object.keys(Colors)) {
       this.colors.push({
-        name, color: _Colors[name]
+        name, color: Colors[name]
       });
     }
-    this.onClick(Colors.Red);
+    this.onClick(Colors["red"]);
     console.log(this.arcoThemeService);
   }
 
   onClick(color: Color) {
-    this.gradients = color.gradients();
-    this.darkGradients = color.gradients(true);
+    this.light = color.light;
+    this.dark = color.dark;
   }
 
   trackByName(index: number, _: string) {

@@ -1,21 +1,17 @@
-import { ObjectUnsubscribedError } from "rxjs";
-import { Color, Colors } from "./Color";
-import { ColorGradient } from "./ColorGradient";
-// @ts-ignore
-import { generate } from "@arco-design/color";
+import { Color, Colors, generateColor } from "./Color";
 
 describe('Arco Color', () => {
   it('test', () => {
-    const red = Colors.Red;
+    const red = Colors["red"];
     expect(red.primary).toEqual('#F53F3F');
 
-    expect(red.light()).toEqual('#F53F3F');
-    expect(red.light(ColorGradient.G1)).toEqual('#FFECE8');
-    expect(red.light(ColorGradient.G10)).toEqual('#4D000A');
+    expect(red.light[5]).toEqual('#F53F3F');
+    expect(red.light[0]).toEqual('#FFECE8');
+    expect(red.light[9]).toEqual('#4D000A');
 
-    expect(red.dark()).toEqual('#F76965');
-    expect(red.dark(ColorGradient.G1)).toEqual('#4D000A');
-    expect(red.dark(ColorGradient.G10)).toEqual('#FFF0EC');
+    expect(red.dark[5]).toEqual('#F76965');
+    expect(red.dark[0]).toEqual('#4D000A');
+    expect(red.dark[9]).toEqual('#FFF0EC');
   });
 
   it('print css var', () => {
@@ -31,15 +27,14 @@ describe('Arco Color', () => {
       let first = true;
       for (let key of Object.keys(_Colors)) {
         const color = _Colors[key];
-        console.log(color.gradients(true, 'rgb'));
-        const gradients = dark ? color.gradients(true) : color.gradients();
+        const gradients = dark ? color.dark : color.light
         let _buff = '';
         if (first) {
           first = false;
         } else {
           _buff += ', ';
         }
-        _buff += `"${color.name}":(`;
+        _buff += `"${key}":(`;
         let _first = true;
         for (const index in gradients) {
           if (_first) {
@@ -65,9 +60,6 @@ describe('Arco Color', () => {
   });
 
   it('123', () => {
-    console.log(generate('#123456', {
-      format: 'rgb',
-      list: true
-    }));
+    console.log(generateColor('#123456'));
   });
 });

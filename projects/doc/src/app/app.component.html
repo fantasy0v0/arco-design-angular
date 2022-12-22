@@ -1,16 +1,16 @@
 <div class="colors">
   <ng-container *ngFor="let item of colors">
-    <div [style]="{'background-color': item.color.primary()}" (click)="onClick(item.color)"></div>
+    <div [style]="{'background-color': item.color.primary}" (click)="onClick(item.color)"></div>
   </ng-container>
 </div>
 <div>
   <div class="light">
-    <ng-container *ngFor="let gradient of gradients; trackBy: trackByName">
+    <ng-container *ngFor="let gradient of light; trackBy: trackByName">
       <div [style]="{'background-color': gradient}">{{ gradient }}</div>
     </ng-container>
   </div>
   <div class="dark" style="margin-left: 1rem;">
-    <ng-container *ngFor="let gradient of darkGradients; trackBy: trackByName">
+    <ng-container *ngFor="let gradient of dark; trackBy: trackByName">
       <div [style]="{'background-color': gradient}">{{ gradient }}</div>
     </ng-container>
   </div>
