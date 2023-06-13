@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../../../dist/arco-design-angular/styles/shadow.scss';
+@import '../../../dist/arco-design-angular/styles/transition.scss';
+
+
+.test {
+  box-shadow: arco-box-shadow(2);
+  transition: arco-transition(width, height);
+}

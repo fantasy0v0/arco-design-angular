@@ -1,4 +1,4 @@
-import { Color, Colors, generateColor } from "./Color";
+import { Colors, generateColor } from "./Color";
 
 describe('Arco Color', () => {
   it('test', () => {
@@ -14,20 +14,28 @@ describe('Arco Color', () => {
     expect(red.dark[9]).toEqual('#FFF0EC');
   });
 
+  function getRgb(str: string): string {
+    let reg = /rgb\((\d+), (\d+), (\d+)\)/;
+    const array = reg.exec(str);
+    if (null == array || array.length != 4) {
+      throw new Error(`参数非法: ${str}`);
+    }
+    return `(${array[1]}, ${array[2]}, ${array[3]})`
+  }
+
   it('print css var', () => {
     let genColor = (dark: boolean = false) => {
-      const _Colors = Colors as { [key: string]: Color };
       let buff = '$';
       if (dark) {
-        buff += 'dart-colors';
+        buff += 'dark-colors';
       } else {
-        buff += 'colors';
+        buff += 'light-colors';
       }
       buff += ': (';
       let first = true;
-      for (let key of Object.keys(_Colors)) {
-        const color = _Colors[key];
-        const gradients = dark ? color.dark : color.light
+      for (let key of Object.keys(Colors)) {
+        const color = Colors[key];
+        const gradients = generateColor(color.primary, 'rgb', dark);
         let _buff = '';
         if (first) {
           first = false;
@@ -43,7 +51,7 @@ describe('Arco Color', () => {
             _buff += ', ';
           }
           const gradient = gradients[index];
-          _buff += gradient;
+          _buff += getRgb(gradient);
         }
         buff += _buff;
         buff += ')';
