@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Color, Colors } from 'arco-design-angular/color';
-import { ArcoThemeService } from 'arco-design-angular/theme';
+import {Component} from '@angular/core';
+import {Color, Colors} from 'arco-design-angular/color';
+import {ArcoThemeService} from 'arco-design-angular/theme';
+import {NgFor} from '@angular/common';
 
 interface ColorItem {
 
@@ -12,7 +13,9 @@ interface ColorItem {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [NgFor]
 })
 export class AppComponent {
   title = 'doc';
