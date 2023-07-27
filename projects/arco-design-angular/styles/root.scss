@@ -1,22 +1,6 @@
-@import "./css-variable.scss";
+@import "./color.scss";
 
-@mixin _root-color($colors) {
-  @each $k, $v in $colors {
-    @for $i from 1 through length($v) {
-      $vv: nth($v, $i);
-      --#{$k}-#{$i}: #{$vv};
-    }
-  }
-}
-
-@mixin _root($lights, $darks) {
-  @include _root-color($lights);
-
-  &[arco-theme='dark'] {
-    @include _root-color($lights);
-  }
-}
-
-html {
-  @include _root($light-colors, $dark-colors);
+:root {
+  --arco-font-size: 14;
+  --arco-font-family: Inter,-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,noto sans,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
 }

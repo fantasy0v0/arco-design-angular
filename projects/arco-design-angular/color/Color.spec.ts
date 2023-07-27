@@ -20,50 +20,35 @@ describe('Arco Color', () => {
     if (null == array || array.length != 4) {
       throw new Error(`参数非法: ${str}`);
     }
-    return `(${array[1]}, ${array[2]}, ${array[3]})`
+    return `${array[1]}, ${array[2]}, ${array[3]}`
   }
 
   it('print css var', () => {
-    let genColor = (dark: boolean = false) => {
-      let buff = '$';
-      if (dark) {
-        buff += 'dark-colors';
-      } else {
-        buff += 'light-colors';
-      }
-      buff += ': (';
-      let first = true;
-      for (let key of Object.keys(Colors)) {
+    const genColor = (dark: boolean = false) => {
+      const colorArray = [];
+      for (const key of Object.keys(Colors)) {
         const color = Colors[key];
         const gradients = generateColor(color.primary, 'rgb', dark);
-        let _buff = '';
-        if (first) {
-          first = false;
-        } else {
-          _buff += ', ';
-        }
-        _buff += `"${key}":(`;
-        let _first = true;
-        for (const index in gradients) {
-          if (_first) {
-            _first = false;
-          } else {
-            _buff += ', ';
-          }
-          const gradient = gradients[index];
-          _buff += getRgb(gradient);
-        }
-        buff += _buff;
-        buff += ')';
+        const item = gradients
+          .map(gradient => getRgb(gradient))
+          .map((rgb, index) => {
+            return `--${key}-${index + 1}: ${rgb}`;
+          });
+        colorArray.push(...item);
       }
-      buff += ');';
-      return buff;
-
+      return colorArray;
     }
-    let colors = genColor();
-    console.log(colors);
-    colors = genColor(true);
-    console.log(colors);
+    const genCSS = (dark: boolean = false) => {
+      const colors = genColor(dark);
+      let buff = dark ? ':root[arco-theme="dark"] {\n' : ':root {\n';
+      for (let color of colors) {
+        buff += '  ' + color + ';\n';
+      }
+      buff += '}';
+      return buff;
+    }
+    console.log(genCSS());
+    console.log(genCSS(true));
     expect(true).toBe(true);
   });
 
