@@ -1,9 +1,0 @@
-@use "sass:list";
-
-@function arco-transition($properties...) {
-  $transitions: ();
-  @each $property in $properties {
-    $transitions: list.append($transitions, $property 120ms cubic-bezier(.38, 0, .24, 1), $separator: comma);
-  }
-  @return $transitions;
-}

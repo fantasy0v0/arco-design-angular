@@ -1,0 +1,40 @@
+@use "sass:list";
+
+// Pixel Scaling 像素缩放
+// @param $px 相对于14px的像素值, 不带单位
+@function ps($px) {
+  $scale : $px / 14;
+  @return (var(--arco-font-size) * $scale) * 1px;
+}
+
+/**
+ * Arco阴影
+ * @param level 1 一级阴影 2 二级阴影 3 三级阴影 4 四级阴影
+ */
+@function arco-box-shadow($level) {
+  $var: 0px ps(8) ps(20);
+  @if $level <= 1 {
+    $var: 0px ps(2) ps(5);
+  }
+
+  @if $level == 2 {
+    $var: 0px ps(4) ps(10);
+  }
+
+  // TODO https://arco.design/docs/spec/style-guideline#%E9%98%B4%E5%BD%B1
+  @if $level == 3 {
+    $var: 0px ps(4) ps(10);
+  }
+
+  @return $var rgba(0, 0, 0, .1);
+}
+
+// Arco transition设置
+// @param $properties 需要设置的属性列表, 样例: arco-transition(width, height)
+@function arco-transition($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: list.append($transitions, $property 120ms cubic-bezier(.38, 0, .24, 1), $separator: comma);
+  }
+  @return $transitions;
+}
