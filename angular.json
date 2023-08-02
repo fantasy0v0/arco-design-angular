@@ -5,6 +5,11 @@
   "projects": {
     "arco-design-angular": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/arco-design-angular",
       "sourceRoot": "projects/arco-design-angular",
       "prefix": "arco",

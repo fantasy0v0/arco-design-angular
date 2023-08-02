@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
 import {Color, Colors} from 'arco-design-angular/color';
 import {ArcoThemeService} from 'arco-design-angular/theme';
-import {NgFor} from '@angular/common';
+import {CommonModule} from '@angular/common';
+import {ButtonComponent} from "arco-design-angular/button";
 
 interface ColorItem {
 
@@ -15,7 +16,10 @@ interface ColorItem {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [NgFor]
+  imports: [
+    CommonModule,
+    ButtonComponent
+  ]
 })
 export class AppComponent {
   title = 'doc';

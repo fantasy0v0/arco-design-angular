@@ -1,10 +1,12 @@
+@use "sass:math";
 @use "sass:list";
 
-// Pixel Scaling 像素缩放
-// @param $px 相对于14px的像素值, 不带单位
+/**
+ * Pixel Scale 像素缩放
+ * @param $px 相对于14px的像素值, 不带单位
+ */
 @function ps($px) {
-  $scale : $px / 14;
-  @return (var(--arco-font-size) * $scale) * 1px;
+  @return calc($px / 14 * var(--arco-font-size));
 }
 
 /**
@@ -14,7 +16,7 @@
 @function arco-box-shadow($level) {
   $var: 0px ps(8) ps(20);
   @if $level <= 1 {
-    $var: 0px ps(2) ps(5);
+    $var: 0 ps(2) ps(5);
   }
 
   @if $level == 2 {

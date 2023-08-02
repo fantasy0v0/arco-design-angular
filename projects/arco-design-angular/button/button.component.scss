@@ -1,0 +1,7 @@
+@import "../styles/function";
+
+:host {
+  background-color: rgb(var(--arcoblue-6));
+  color: white;
+  border: ps(1) solid transparent;
+}
