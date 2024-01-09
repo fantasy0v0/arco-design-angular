@@ -1,7 +1,18 @@
-:root {
-  --arco-font-size: 14px;
-  --arco-line-height: 1.5;
-  --arco-font-family: Inter, -apple-system, BlinkMacSystemFont, PingFang SC,
-                      Hiragino Sans GB, noto sans, Microsoft YaHei, Helvetica Neue,
-                      Helvetica, Arial, sans-serif;
+body {
+  --font-size-body-3: 14px;
+  --font-size-body-2: var(--font-size-body-3 * .92857);
+  --font-size-body-1: var(--font-size-body-3 * .85714);
+
+  --font-size-caption: var(--font-size-body-1);
+
+  --font-size-title-1: var(--font-size-body-3 * 1.14285);
+  --font-size-title-2: var(--font-size-title-1 * 1.25);
+  --font-size-title-3: var(--font-size-title-1 * 1.5);
+
+  --font-size-display-1: var(--font-size-body-3 * 2.57142);
+  --font-size-display-2: var(--font-size-display-1 * 1.33333);
+  --font-size-display-3: var(--font-size-display-1 * 1.55555);
+
+  --line-height: 1.5;
+  --font-family: 'nunito_for_arco', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
