@@ -1,18 +1,83 @@
+// https://arco.design/react/docs/token
 body {
+  --font-family: Inter, "-apple-system", BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "noto sans", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   --font-size-body-3: 14px;
-  --font-size-body-2: var(--font-size-body-3 * .92857);
-  --font-size-body-1: var(--font-size-body-3 * .85714);
+  --font-size-body-2: calc(var(--font-size-body-3) * .92857);
+  --font-size-body-1: calc(var(--font-size-body-3) * .85714);
 
   --font-size-caption: var(--font-size-body-1);
 
-  --font-size-title-1: var(--font-size-body-3 * 1.14285);
-  --font-size-title-2: var(--font-size-title-1 * 1.25);
-  --font-size-title-3: var(--font-size-title-1 * 1.5);
+  --font-size-title-1: calc(var(--font-size-body-3) * 1.14285);
+  --font-size-title-2: calc(var(--font-size-title-1) * 1.25);
+  --font-size-title-3: calc(var(--font-size-title-1) * 1.5);
 
-  --font-size-display-1: var(--font-size-body-3 * 2.57142);
-  --font-size-display-2: var(--font-size-display-1 * 1.33333);
-  --font-size-display-3: var(--font-size-display-1 * 1.55555);
+  --font-size-display-1: calc(var(--font-size-body-3) * 2.57142);
+  --font-size-display-2: calc(var(--font-size-display-1) * 1.33333);
+  --font-size-display-3: calc(var(--font-size-display-1) * 1.55555);
 
-  --line-height: 1.5;
-  --font-family: 'nunito_for_arco', 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-900: 900;
+  --font-weight-300: 300;
+  --font-weight-200: 200;
+  --font-weight-100: 100;
+
+  --size-1: 4px;
+  --size-2: calc(var(--size-1) * 2);
+  --size-3: calc(var(--size-1) * 3);
+  --size-4: calc(var(--size-1) * 4);
+  --size-5: calc(var(--size-1) * 5);
+  --size-6: calc(var(--size-1) * 6);
+  --size-7: calc(var(--size-1) * 7);
+  --size-8: calc(var(--size-1) * 8);
+  --size-9: calc(var(--size-1) * 9);
+  --size-10: calc(var(--size-1) * 10);
+  --size-11: calc(var(--size-1) * 11);
+  --size-12: calc(var(--size-1) * 12);
+  --size-13: calc(var(--size-1) * 13);
+  --size-14: calc(var(--size-1) * 14);
+  --size-15: calc(var(--size-1) * 15);
+  --size-16: calc(var(--size-1) * 16);
+  --size-17: calc(var(--size-1) * 17);
+  --size-18: calc(var(--size-1) * 18);
+  --size-19: calc(var(--size-1) * 19);
+  --size-20: calc(var(--size-1) * 20);
+  --size-21: calc(var(--size-1) * 21);
+  --size-22: calc(var(--size-1) * 22);
+  --size-23: calc(var(--size-1) * 23);
+  --size-24: calc(var(--size-1) * 24);
+  --size-25: calc(var(--size-1) * 25);
+  --size-26: calc(var(--size-1) * 26);
+  --size-27: calc(var(--size-1) * 27);
+  --size-28: calc(var(--size-1) * 28);
+  --size-29: calc(var(--size-1) * 29);
+  --size-30: calc(var(--size-1) * 30);
+  --size-31: calc(var(--size-1) * 31);
+  --size-32: calc(var(--size-1) * 32);
+  --size-33: calc(var(--size-1) * 33);
+  --size-34: calc(var(--size-1) * 34);
+  --size-35: calc(var(--size-1) * 35);
+  --size-36: calc(var(--size-1) * 36);
+  --size-37: calc(var(--size-1) * 37);
+  --size-38: calc(var(--size-1) * 38);
+  --size-39: calc(var(--size-1) * 39);
+  --size-40: calc(var(--size-1) * 40);
+  --size-41: calc(var(--size-1) * 41);
+  --size-42: calc(var(--size-1) * 42);
+  --size-43: calc(var(--size-1) * 43);
+  --size-44: calc(var(--size-1) * 44);
+  --size-45: calc(var(--size-1) * 45);
+  --size-46: calc(var(--size-1) * 46);
+  --size-47: calc(var(--size-1) * 47);
+  --size-48: calc(var(--size-1) * 48);
+  --size-49: calc(var(--size-1) * 49);
+  --size-50: calc(var(--size-1) * 50);
+
+  --border-1: 1px;
+  --border-2: calc(var(--border-1) + 1px);
+  --border-3: calc(var(--border-1) + 2px);
+
 }
