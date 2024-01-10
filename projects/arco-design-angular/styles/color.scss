@@ -282,3 +282,31 @@ body[arco-theme="dark"] {
   --gray-9: 214, 224, 231;
   --gray-10: 233, 247, 255;
 }
+
+body {
+  --color-bg-1: #fff;
+  --color-bg-2: #fff;
+  --color-bg-3: #fff;
+  --color-bg-4: #fff;
+  --color-bg-5: #fff;
+}
+body[arco-theme="dark"] {
+  --color-bg-1: #17171A;
+  --color-bg-2: #232324;
+  --color-bg-3: #2a2a2b;
+  --color-bg-4: #313132;
+  --color-bg-5: #373739;
+}
+
+body {
+  --color-text-1: #1d2129;
+  --color-text-2: #4e5969;
+  --color-text-3: #86909c;
+  --color-text-4: #c9cdd4;
+}
+body[arco-theme="dark"] {
+  --color-text-1: rgba(255, 255, 255, 0.9);
+  --color-text-2: rgba(255, 255, 255, 0.7);
+  --color-text-3: rgba(255, 255, 255, 0.5);
+  --color-text-4: rgba(255, 255, 255, 0.3);
+}
