@@ -6,7 +6,7 @@
   },
   "assets": [
     "index.scss",
-    "styles/*",
+    "styles/*.scss",
     "schematics/collection.json",
     "schematics/*/schema.json"
   ]
