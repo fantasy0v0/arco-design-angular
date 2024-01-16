@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Color, Colors} from 'arco-design-angular/color';
 import {ArcoThemeService} from 'arco-design-angular/theme';
 import {CommonModule} from '@angular/common';
-import {ButtonComponent} from "arco-design-angular/button";
+import {ArcoButtonComponent} from "arco-design-angular/button";
 
 interface ColorItem {
 
@@ -18,7 +18,7 @@ interface ColorItem {
   standalone: true,
   imports: [
     CommonModule,
-    ButtonComponent
+    ArcoButtonComponent
   ]
 })
 export class AppComponent {

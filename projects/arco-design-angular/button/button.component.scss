@@ -1,7 +1,7 @@
 @import "../styles/function";
 
 :host {
-  background-color: rgb(var(--arcoblue-6));
+  background-color: var(--primary-6);
   color: white;
-  border: ps(1) solid transparent;
+  border: var(--border-1) solid var(--primary-5);
 }

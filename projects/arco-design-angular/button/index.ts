@@ -1,1 +1,1 @@
-export { ButtonComponent } from './button.component';
+export { ArcoButtonComponent } from './button.component';
