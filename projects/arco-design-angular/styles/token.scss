@@ -1,21 +1,72 @@
-// https://arco.design/react/docs/token
+@import "./color";
+// https://arco.design/react/en-US/docs/token
 body {
-  --font-family: Inter, "-apple-system", BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "noto sans", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // Primary
+  --primary-6: rgb(var(--arcoblue-6));
+  --primary-5: rgb(var(--arcoblue-5));
+  --primary-7: rgb(var(--arcoblue-7));
+  --primary-4: rgb(var(--arcoblue-4));
+  --primary-3: rgb(var(--arcoblue-3));
+  --primary-2: rgb(var(--arcoblue-2));
+  --primary-1: rgb(var(--arcoblue-1));
 
+  // Success
+  --success-6: rgb(var(--green-6));
+  --success-5: rgb(var(--green-5));
+  --success-7: rgb(var(--green-7));
+  --success-4: rgb(var(--green-4));
+  --success-3: rgb(var(--green-3));
+  --success-2: rgb(var(--green-2));
+  --success-1: rgb(var(--green-1));
+
+  // Warning
+  --warning-6: rgb(var(--orange-6));
+  --warning-5: rgb(var(--orange-5));
+  --warning-7: rgb(var(--orange-7));
+  --warning-4: rgb(var(--orange-4));
+  --warning-3: rgb(var(--orange-3));
+  --warning-2: rgb(var(--orange-2));
+  --warning-1: rgb(var(--orange-1));
+
+  // Danger
+  --danger-6: rgb(var(--red-6));
+  --danger-5: rgb(var(--red-5));
+  --danger-7: rgb(var(--red-7));
+  --danger-4: rgb(var(--red-4));
+  --danger-3: rgb(var(--red-3));
+  --danger-2: rgb(var(--red-2));
+  --danger-1: rgb(var(--red-1));
+
+  // Link
+  --link-6: rgb(var(--arcoblue-6));
+  --link-5: rgb(var(--arcoblue-5));
+  --link-7: rgb(var(--arcoblue-7));
+  --link-4: rgb(var(--arcoblue-4));
+  --link-3: rgb(var(--arcoblue-3));
+  --link-2: rgb(var(--arcoblue-2));
+  --link-1: rgb(var(--arcoblue-1));
+
+  // Border Color
+
+  // Fill Color
+
+  // Color Text
+
+  // Background Color
+
+  // Font Size
   --font-size-body-3: 14px;
   --font-size-body-2: calc(var(--font-size-body-3) * .92857);
   --font-size-body-1: calc(var(--font-size-body-3) * .85714);
-
   --font-size-caption: var(--font-size-body-1);
-
   --font-size-title-1: calc(var(--font-size-body-3) * 1.14285);
   --font-size-title-2: calc(var(--font-size-title-1) * 1.25);
   --font-size-title-3: calc(var(--font-size-title-1) * 1.5);
-
   --font-size-display-1: calc(var(--font-size-body-3) * 2.57142);
   --font-size-display-2: calc(var(--font-size-display-1) * 1.33333);
   --font-size-display-3: calc(var(--font-size-display-1) * 1.55555);
 
+  // Font Weight
   --font-weight-400: 400;
   --font-weight-600: 600;
   --font-weight-700: 700;
@@ -25,6 +76,7 @@ body {
   --font-weight-200: 200;
   --font-weight-100: 100;
 
+  // Size
   --size-1: 4px;
   --size-2: calc(var(--size-1) * 2);
   --size-3: calc(var(--size-1) * 3);
@@ -76,8 +128,18 @@ body {
   --size-49: calc(var(--size-1) * 49);
   --size-50: calc(var(--size-1) * 50);
 
+  // Component Size
+  --size-mini: var(--size-6);
+  --size-small: var(--size-7);
+  --size-default: var(--size-8);
+  --size-large: var(--size-9);
+
+  // Border Size
   --border-1: 1px;
   --border-2: calc(var(--border-1) + 1px);
   --border-3: calc(var(--border-1) + 2px);
 
+  // Border Radius
+
+  // Shadow
 }
