@@ -1,20 +1,20 @@
 <div class="colors">
   <ng-container *ngFor="let item of colors">
-    <div [style]="{'background-color': item.color.primary}" (click)="onClick(item.color)"></div>
+    <div [style.background-color]="item.color.primary" (click)="onClick(item.color)"></div>
   </ng-container>
 </div>
 <div>
   <div class="light">
-    <ng-container *ngFor="let gradient of light; trackBy: trackByName">
-      <div [style]="{'background-color': gradient}">{{ gradient }}</div>
-    </ng-container>
+    @for (gradient of light; track $index) {
+      <div [style.background-color]="gradient">{{ gradient }}</div>
+    }
   </div>
   <div class="dark" style="margin-left: 1rem;">
-    <ng-container *ngFor="let gradient of dark; trackBy: trackByName">
-      <div [style]="{'background-color': gradient}">{{ gradient }}</div>
-    </ng-container>
+    @for (gradient of dark; track $index) {
+      <div [style.background-color]="gradient">{{ gradient }}</div>
+    }
   </div>
 </div>
 
-<div class="test">测试一下</div>
-<button arco-button [disabled]="false">测试一下</button>
+<div class="test" (click)="test()">测试一下</div>
+<button arco-button [disabled]="disabled">测试一下</button>

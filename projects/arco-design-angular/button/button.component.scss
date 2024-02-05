@@ -4,4 +4,5 @@
   background-color: var(--primary-6);
   color: white;
   border: var(--border-1) solid var(--primary-5);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }

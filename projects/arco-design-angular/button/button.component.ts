@@ -1,5 +1,20 @@
-import {ChangeDetectionStrategy, Component, HostBinding, Input} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 import {CommonModule} from '@angular/common';
+
+export type ArcoButtonType =
+  'default'
+  | 'primary'
+  | 'secondary'
+  | 'dashed'
+  | 'text'
+  | 'outline';
 
 @Component({
   selector: 'button[arco-button]',
@@ -8,15 +23,21 @@ import {CommonModule} from '@angular/common';
   imports: [CommonModule],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArcoButtonComponent {
+export class ArcoButtonComponent implements OnChanges {
 
   @HostBinding('[attr.disabled]')
   @Input() disabled: boolean = false;
 
-  test() {
-    console.log('test');
+  @Input() type: ArcoButtonType = 'default';
+
+  get runChangeDetection() {
+    console.log('Checking the view');
+    return true;
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 }

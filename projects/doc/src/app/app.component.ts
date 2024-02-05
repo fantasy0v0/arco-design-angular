@@ -30,6 +30,8 @@ export class AppComponent {
 
   dark: string[] = [];
 
+  disabled = false;
+
   constructor(private arcoThemeService: ArcoThemeService) {
     for (let name of Object.keys(Colors)) {
       this.colors.push({
@@ -45,7 +47,7 @@ export class AppComponent {
     this.dark = color.dark;
   }
 
-  trackByName(index: number, _: string) {
-    return index;
+  test() {
+    this.disabled = !this.disabled;
   }
 }
