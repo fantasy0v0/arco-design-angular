@@ -16,5 +16,5 @@
   </div>
 </div>
 
-<div class="test" (click)="test()">测试一下</div>
-<button arco-button [disabled]="disabled">测试一下</button>
+<div class="test" (click)="test()">修改禁用状态</div>
+<button arco-button [disabled]="disabled()">{{ disabled() ? '已禁用' : '未禁用' }}</button>

@@ -1,8 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
-  Input,
+  effect,
+  HostListener,
+  input,
   OnChanges,
   SimpleChanges
 } from '@angular/core';
@@ -24,13 +25,25 @@ export type ArcoButtonType =
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[attr.disabled]': 'disabled() || null'
+  }
 })
 export class ArcoButtonComponent implements OnChanges {
 
-  @HostBinding('[attr.disabled]')
-  @Input() disabled: boolean = false;
+  disabled = input(false);
 
-  @Input() type: ArcoButtonType = 'default';
+  type = input<ArcoButtonType>('default');
+
+  @HostListener("click") onClick() {
+    console.log("User Click using Host Listener")
+  }
+
+  constructor() {
+    effect(() => {
+      console.log("effect");
+    });
+  }
 
   get runChangeDetection() {
     console.log('Checking the view');
@@ -38,6 +51,6 @@ export class ArcoButtonComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
+    console.log("ngOnChanges", changes);
   }
 }

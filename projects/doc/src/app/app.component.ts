@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {Color, Colors} from 'arco-design-angular/color';
 import {ArcoThemeService} from 'arco-design-angular/theme';
 import {CommonModule} from '@angular/common';
@@ -30,7 +30,7 @@ export class AppComponent {
 
   dark: string[] = [];
 
-  disabled = false;
+  disabled = signal(false);
 
   constructor(private arcoThemeService: ArcoThemeService) {
     for (let name of Object.keys(Colors)) {
@@ -48,6 +48,6 @@ export class AppComponent {
   }
 
   test() {
-    this.disabled = !this.disabled;
+    this.disabled.update(value => !value);
   }
 }
