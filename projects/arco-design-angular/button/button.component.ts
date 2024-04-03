@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-export type ArcoButtonType =
+export type NaButtonType =
   'default'
   | 'primary'
   | 'secondary'
@@ -18,8 +18,8 @@ export type ArcoButtonType =
   | 'outline';
 
 @Component({
-  selector: 'button[arco-button]',
-  exportAs: 'arcoButton',
+  selector: 'button[na-button]',
+  exportAs: 'NaButton',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
@@ -29,11 +29,11 @@ export type ArcoButtonType =
     '[attr.disabled]': 'disabled() || null'
   }
 })
-export class ArcoButtonComponent implements OnChanges {
+export class NaButtonComponent implements OnChanges {
 
   disabled = input(false);
 
-  type = input<ArcoButtonType>('default');
+  type = input<NaButtonType>('default');
 
   @HostListener("click") onClick() {
     console.log("User Click using Host Listener")

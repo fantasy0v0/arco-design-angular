@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArcoButtonComponent as ButtonComponent } from './button.component';
+import {
+  NaButtonComponent as ButtonComponent
+} from './button.component';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
