@@ -1,4 +1,9 @@
+import {NaResponsiveBreakpoint} from "../../core/responsive/type";
 
-export type NzRowAlign = 'start' | 'end' | 'center' | 'stretch';
+export type NaRowAlign = 'start' | 'end' | 'center' | 'stretch';
 
-export type NzRowJustify = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+export type NaRowJustify = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+
+export type NaGridRowGutter =
+  | number
+  | Partial<Record<NaResponsiveBreakpoint, number>>;

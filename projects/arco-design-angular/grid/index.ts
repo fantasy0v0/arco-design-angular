@@ -1,1 +1,1 @@
-export { RowComponent } from './row/row.component'
+export { NaRowComponent } from './row/row.component'

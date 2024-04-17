@@ -1,5 +1,6 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
-import {NzRowAlign, NzRowJustify} from "./type";
+import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {NaRowAlign, NaRowJustify, NaGridRowGutter} from "./type";
+import {BreakpointObserver} from "@angular/cdk/layout";
 
 @Component({
   selector: 'na-row',
@@ -13,18 +14,33 @@ import {NzRowAlign, NzRowJustify} from "./type";
     '[style.justify-content]': 'justify()'
   }
 })
-export class RowComponent {
+export class NaRowComponent {
 
   /**
    * 竖直对齐方式 ( align-items )
    */
-  align = input<NzRowAlign>('start');
+  align = input<NaRowAlign>('start');
 
   /**
    * 水平对齐方式 (justify-content)
    */
-  justify = input<NzRowJustify>('start');
+  justify = input<NaRowJustify>('start');
 
-  gutter = input();
+  /**
+   * 栅格间隔，单位是px 栅格间隔。可传入响应式对象写法 { xs: 4, sm: 6, md: 12}，传入数组 [ 水平间距， 垂直间距 ] 来设置两个方向。
+   */
+  gutter = input<NaGridRowGutter>(1);
+
+  private breakpointObserver = inject(BreakpointObserver);
+
+  constructor() {
+    this.breakpointObserver.observe(['(max-width: 768px)']).subscribe(result => {
+      if (result.matches) {
+        result.breakpoints
+      } else {
+
+      }
+    });
+  }
 
 }
