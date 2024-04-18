@@ -1,6 +1,6 @@
 # 基于
 
-Angular 16
+Angular 17
 
 arco-design 2.40.0
 
