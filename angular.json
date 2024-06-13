@@ -53,12 +53,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/doc",
+            "outputPath": {
+              "base": "dist/doc"
+            },
             "index": "projects/doc/src/index.html",
-            "main": "projects/doc/src/main.ts",
-            "polyfills": "projects/doc/src/polyfills.ts",
+            "polyfills": [
+              "projects/doc/src/polyfills.ts"
+            ],
             "tsConfig": "projects/doc/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -69,7 +72,8 @@
               "projects/doc/src/styles.scss",
               "dist/arco-design-angular/index.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browser": "projects/doc/src/main.ts"
           },
           "configurations": {
             "production": {
@@ -94,9 +98,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true

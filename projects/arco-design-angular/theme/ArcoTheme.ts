@@ -1,4 +1,4 @@
-import { Color } from "arco-design-angular/color";
+import { Color } from "../color";
 import { ThemeMode } from "./ThemeMode";
 
 /**
