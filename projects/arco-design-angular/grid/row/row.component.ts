@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, inject, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, input} from '@angular/core';
 import {NaRowAlign, NaRowJustify, NaGridRowGutter} from "./type";
 import {BreakpointObserver} from "@angular/cdk/layout";
+import {NaBreakpoints} from "arco-design-angular/core";
 
 @Component({
   selector: 'na-row',
@@ -34,9 +35,14 @@ export class NaRowComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
   constructor() {
-    this.breakpointObserver.observe(['(max-width: 768px)']).subscribe(result => {
+    this.breakpointObserver.observe([
+      NaBreakpoints.sm, NaBreakpoints.xs, NaBreakpoints.md,
+      NaBreakpoints.lg, NaBreakpoints.xl, NaBreakpoints.xxl,
+      NaBreakpoints.xxxl, NaBreakpoints.subsequent
+    ]).subscribe(result => {
+      console.log(result);
       if (result.matches) {
-        result.breakpoints
+
       } else {
 
       }

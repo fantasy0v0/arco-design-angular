@@ -1,8 +1,9 @@
-import {Component, signal} from '@angular/core';
+import {Component, effect, signal} from '@angular/core';
 import {Color, Colors} from 'arco-design-angular/color';
-import {ArcoThemeService} from 'arco-design-angular/theme';
+import {ArcoThemeService, ArcoTheme} from 'arco-design-angular/theme';
 import {CommonModule} from '@angular/common';
-import {ArcoButtonComponent} from "arco-design-angular/button";
+import {NaButtonComponent} from "arco-design-angular/button";
+import {NaRowComponent} from "arco-design-angular/grid";
 
 interface ColorItem {
 
@@ -18,7 +19,8 @@ interface ColorItem {
   standalone: true,
   imports: [
     CommonModule,
-    ArcoButtonComponent
+    NaButtonComponent,
+    NaRowComponent
   ]
 })
 export class AppComponent {
@@ -40,6 +42,9 @@ export class AppComponent {
     }
     this.onClick(Colors["red"]);
     console.log(this.arcoThemeService);
+    effect(() => {
+      console.log(`disabled: ${this.disabled()}`);
+    });
   }
 
   onClick(color: Color) {

@@ -1,4 +1,4 @@
-import {NaResponsiveBreakpoint} from "../../core/responsive/type";
+import {NaBreakpoints} from "arco-design-angular/core";
 
 export type NaRowAlign = 'start' | 'end' | 'center' | 'stretch';
 
@@ -6,4 +6,4 @@ export type NaRowJustify = 'start' | 'end' | 'center' | 'space-around' | 'space-
 
 export type NaGridRowGutter =
   | number
-  | Partial<Record<NaResponsiveBreakpoint, number>>;
+  | Partial<Record<keyof typeof NaBreakpoints, number>>;

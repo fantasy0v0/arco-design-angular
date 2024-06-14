@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NzRowComponent as RowComponent } from './row.component';
+import { NaRowComponent as RowComponent } from './row.component';
 
 describe('RowComponent', () => {
   let component: RowComponent;
